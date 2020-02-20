@@ -1,0 +1,4 @@
+class HostUsersController < ApplicationController
+
+    
+end
