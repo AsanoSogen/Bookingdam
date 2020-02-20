@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: Bookingdam_production
-  username: Bookingdam
-  password: <%= ENV['BOOKINGDAM_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
