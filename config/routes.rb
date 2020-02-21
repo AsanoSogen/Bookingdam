@@ -11,11 +11,10 @@ Rails.application.routes.draw do
     passwords:     'host_users/passwords',
     registrations: 'host_users/registrations'
   }
-                 
+
   root "users#index"
   
-  resources :users, only: [:index,  :show, :new, :create, :edit, :update] 
-
-  resources :host_users, only: [:index, :show, :new, :create, :edit, :update] 
+  resources :users
+  resources :host_users
 
 end
