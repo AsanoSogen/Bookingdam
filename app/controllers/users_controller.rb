@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   #   @user = User.new
   # end
 
-  private
+  # private
 
-  def user_params
-    params.require(:user).permit(:name, :email)
-  end
+  # def user_params
+  #   params.require(:user).permit(:name, :email)
+  # end
 
   # def ensure_correct_user
   #   if @current_user.id != params[:id].to_i
