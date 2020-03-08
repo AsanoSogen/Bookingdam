@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
-  }
+  devise_for :users
 
   # devise_for :host_users, controllers: {
   #   sessions:      'host_users/sessions',
