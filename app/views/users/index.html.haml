@@ -3,7 +3,7 @@
     %h1 booking-appへようこそ
     %p 〜さあ、始めよう
   .header-menu
-    
+    = link_to '予約用ユーザーとしてログイン', new_user_session_path(@user) ,class: 'btn'
 
 .main
   .main-container
