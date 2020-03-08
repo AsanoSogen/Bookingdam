@@ -1,10 +1,10 @@
 .header
   .header-logo
-    //%h1 booking-appへようこそ
-   / %p 〜さあ、始めよう
+    %h1 booking-appへようこそ
+    %p 〜さあ、始めよう
       .header-menu
-        //= link_to '予約用ユーザーとしてログイン', new_user_session_path(@user) ,class: 'btn'
-        //= link_to '告知用ユーザーとしてログイン', new_host_user_session_path(@host_user) ,class: 'btn'
+        = link_to '予約用ユーザーとしてログイン', new_user_session_path,class: 'btn'
+        = link_to '告知用ユーザーとしてログイン', new_host_user_session_path,class: 'btn'
 
 .main
   .main-container
