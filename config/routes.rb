@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #   registrations: 'host_users/registrations'
   # }         
 
-  root to: "users#index"
+  root "users#index"
   
   resources :users, only: [:index] 
 
