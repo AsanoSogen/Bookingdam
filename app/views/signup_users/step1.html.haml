@@ -5,7 +5,7 @@
       .l-single-container
         %h2.l-single-head.registration 会員情報入力
         .l-single-content
-          = form_for @user, url: step2_signup_users_path, method: :get do|f|
+          = form_for  @user, url: step2_signup_users_path, method: :get do|f|
             .form-group
               = f.label :nickname, "氏名"
               %span.form-require 必須
@@ -34,23 +34,22 @@
                 %a{href: "#", target: "_blank"}> 利用規約
                 に同意したものとみなします
             = f.submit '次へ進む', class: "btn_default_btn"
-
-            .form-group.text-right
-              %p
-                %a{href: "#", target: "_blank"}
-                  本人情報の登録について
-            .form-group.recaptcha_term
-    .mains__footer
-      %ul.mains__footer__content
-        %li
-          = link_to "#" do
-            会社概要（運営会社）
-        %li
-          = link_to "#" do
-            プライバシーポリシー
-        %li
-          = link_to "#" do
-            Bookingdam利用規約
-      .mains__footer__logo
-      %p.mains__footer__c-mark
-        © Booingdam
+        .form-group.text-right
+          %p
+            %a{href: "#", target: "_blank"}
+              本人情報の登録について
+        .form-group.recaptcha_term
+  .mains__footer
+    %ul.mains__footer__content
+      %li
+        = link_to "#" do
+          会社概要（運営会社）
+      %li
+        = link_to "#" do
+          プライバシーポリシー
+      %li
+        = link_to "#" do
+          Bookingdam利用規約
+    .mains__footer__logo
+    %p.mains__footer__c-mark
+      © Booingdam
