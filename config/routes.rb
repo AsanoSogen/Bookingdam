@@ -4,12 +4,16 @@ Rails.application.routes.draw do
 
   root  "users#index"
   
-  resources :users, only: [:index, :new, :create, :show] do
+  resources :signup_users, only: [:create] do
     collection do
-      get 'step'
-      post "step"
+      get 'step1'
+      get "step2"
+      post "step2"
       get 'complete' #登録完了後
     end
   end
+
+  resources :users, only: [:index,:show] 
+
   
 end

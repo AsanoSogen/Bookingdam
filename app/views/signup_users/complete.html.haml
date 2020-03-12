@@ -1,0 +1,29 @@
+.done-container
+  .done-container--header
+    =link_to image_tag('logo.png', class: 'done--header--image'), "/informations"
+  .done-container--main
+    %section.done-container--main--display
+      %h2.done-container--main--display--registration 会員登録完了
+      .done-container--main--display--registration--form
+        .done-container--main--display--registration--form--content
+          %p
+            ありがとうございます。
+            %br>/
+            会員登録が完了しました。
+          %a.btn-red{href: ""}
+            フリマをはじめる
+  .mains--footer
+    %ul.mains__footer__content
+      %li
+        = link_to "#" do
+          会社概要（運営会社）
+      %li
+        = link_to "#" do
+          プライバシーポリシー
+      %li
+        = link_to "#" do
+          FURIMA利用規約
+    .mains__footer__logo
+      = link_to image_tag('logo.png', class: 'logo__image'), "#"
+    %p.mains__footer__c-mark
+      © FURIMA,inc.

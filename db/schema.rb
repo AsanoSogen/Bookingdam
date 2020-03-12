@@ -14,12 +14,12 @@ ActiveRecord::Schema.define(version: 20200309054000) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "postal_code",    null: false
+    t.string   "postal_code",    null: false
     t.string   "prefectures",    null: false
     t.string   "municipalities", null: false
     t.string   "address",        null: false
     t.string   "building"
-    t.integer  "phone_number",   null: false
+    t.string   "phone_number",   null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20200309054000) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                null: false
+    t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
