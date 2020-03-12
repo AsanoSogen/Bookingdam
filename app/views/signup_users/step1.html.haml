@@ -5,7 +5,7 @@
       .l-single-container
         %h2.l-single-head.registration 会員情報入力
         .l-single-content
-          = form_for  @user, url: step2_signup_users_path, method: :get do|f|
+          =form_for  @user, url: step2_signup_users_path, method: :get do |f|
             .form-group
               = f.label :nickname, "氏名"
               %span.form-require 必須
@@ -18,11 +18,11 @@
             .form-group.form-password-revelation
               = f.label :password, "パスワード"
               %span.form-require 必須
-              = f.password_field :password, {class: "input-default", placeholder: "7文字以上の半角英数字"}
+              = f.password_field :password,{class: "input-default", placeholder: "7文字以上の半角英数字"}
             .form-group.form-password-confirmation
               = f.label :password, "パスワード(確認)"
               %span.form-require 必須
-              = f.password_field :password_confirmation, {class: "input-default", placeholder: "7文字以上の半角英数字"}
+              = f.password_field :password_confirmation,{class: "input-default", placeholder: "7文字以上の半角英数字"}
               %p.form-info-text
                 ※ 英字と数字の両方を含めて設定してください
             .form-group
