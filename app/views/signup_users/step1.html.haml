@@ -1,12 +1,11 @@
 %body
   .single-container
     .single-container--header
-    -#   =link_to image_tag('logo.png', class: 'single--header--image'), "/informations"
     %main.single-main
       .l-single-container
         %h2.l-single-head.registration 会員情報入力
         .l-single-content
-          = form_for @user, url: step2_signup_users_path do|f|
+          = form_for @user, url: step2_signup_users_path, method: :get do|f|
             .form-group
               = f.label :nickname, "氏名"
               %span.form-require 必須
@@ -32,21 +31,15 @@
                 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
               %p.l-single-text.text-center
                 「次へ進む」のボタンを押すことは、
-                %a{href: "/jp/tos_list/", target: "_blank"}> 利用規約
+                %a{href: "#", target: "_blank"}> 利用規約
                 に同意したものとみなします
             = f.submit '次へ進む', class: "btn_default_btn"
+
             .form-group.text-right
               %p
-                %a{href: "/jp/help_center/article/423/", target: "_blank"}
+                %a{href: "#", target: "_blank"}
                   本人情報の登録について
-                  %i.icon-arrow-right
             .form-group.recaptcha_term
-              %p
-                This site is protected by reCAPTCHA and the Google
-                %a{href: "https://policies.google.com/privacy", target: "_blank"} Privacy Policy
-                and
-                %a{href: "https://policies.google.com/terms", target: "_blank"} Terms of Service
-                apply.
     .mains__footer
       %ul.mains__footer__content
         %li
@@ -59,6 +52,5 @@
           = link_to "#" do
             Bookingdam利用規約
       .mains__footer__logo
-        -# = link_to image_tag('logo.png', class: 'logo__image'), "#"
       %p.mains__footer__c-mark
         © Booingdam
