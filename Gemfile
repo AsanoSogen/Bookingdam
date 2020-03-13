@@ -67,3 +67,4 @@ gem "devise"
 gem 'activerecord-session_store'
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'carrierwave'
