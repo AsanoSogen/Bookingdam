@@ -65,3 +65,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "devise"
 gem 'activerecord-session_store'
+gem 'fog-aws'
+gem 'mini_magick'
