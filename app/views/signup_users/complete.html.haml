@@ -10,8 +10,7 @@
             ありがとうございます。
             %br>/
             会員登録が完了しました。
-          %a.btn-red{href: ""}
-            フリマをはじめる
+          =link_to "アプリを利用する", user_path(session[:id])
   .mains--footer
     %ul.mains__footer__content
       %li

@@ -19,14 +19,14 @@ class ApplicationController < ActionController::Base
   
 
 
-  # def after_sign_in_path_for(resource)
-  #   case resource
-  #   # when HostUser
-  #   #   host_user_path(id: resource.id)
-  #   when User
-  #     user_path(id: resource.id)     
-  #   end
-  # end
+  def after_sign_in_path_for(resource)
+    case resource
+    # when HostUser
+    #   host_user_path(id: resource.id)
+    when User
+      user_path(id: resource.id)     
+    end
+  end
 
   protected
 
