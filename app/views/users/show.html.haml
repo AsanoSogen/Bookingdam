@@ -1,12 +1,19 @@
 .show-header
-    .show-header-logo
-        =current_user.nickname + "様のページ"
-    .show-header-menu
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+  .show-header-logo
+    =current_user.nickname + "様のページ"
+  .show-header-menu
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+
 .show-main
-    .show-main-container
-        -# = image_tag "green.jpg", alt: "写真"   
-        %p 一覧
+  .show-main-container
+    -# = image_tag "green.jpg", alt: "写真"   
+    %p 一覧
+
+  .show-posts-container 
+    .show-posts-container1
+      =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
+    .host-show-posts-main
+      = render @books
                  
     -# .show-posts-container
     -#     = form_with(url: search_host_users_path, local: true, method: :get, class: "search-form") do |form| 

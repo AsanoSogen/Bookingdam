@@ -1,0 +1,34 @@
+%main.single-main
+  .l-single-container
+    %h2.l-single-head.registration イベント登録
+    .l-single-content
+      = form_with(url: books_path, local: true, method: :post) do |f|
+        = f.hidden_field :book_id, value: @book.id ,multiple: true
+        .form-mail
+          .form-mail_label
+            = f.label :published_at,"開催日時"
+            %span.form-require 必須
+          = f.text_field :published_at, use_month_numbers: true, start_year: 2020, type:"datetime",class: "form-control_date"
+        .form-mail
+          .form-mail_label
+            = f.label :end_day, "予約締切"
+            %span.form-require 必須
+          = f.date_select :end_day, use_month_numbers: true, start_year: 2020,id: "datepicker", type:"text"
+        .form-mail
+          .form-mail_label
+            = f.label :title, "イベント名"
+            %span.form-require 必須
+          = f.text_field :title
+        
+        .form-mail
+          .form-mail_label
+            = f.label :text, "イベント内容"
+            %span.form-require 必須
+          = f.text_area :text
+
+        .form-mail
+          .form-mail_label
+            = f.label :image, "イメージ写真"  do
+              = f.file_field :image
+        
+        = f.submit "送信する", class: "btn btn-danger btn-wide"  

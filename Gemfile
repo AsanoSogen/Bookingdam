@@ -67,4 +67,7 @@ gem "devise"
 gem 'activerecord-session_store'
 gem 'fog-aws'
 gem 'mini_magick'
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.0'
+gem 'rails-i18n', '~> 5.1'
+
+gem 'i18n_generators'

@@ -15,6 +15,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
   has_one :address
   accepts_nested_attributes_for :address
-
+  has_many :books
 
 end

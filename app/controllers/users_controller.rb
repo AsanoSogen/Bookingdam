@@ -6,7 +6,23 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @books = @user.books.order("created_at DESC")
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    # if @user.update(user_params)
+      # @host_user.image="#{@host_user.id}.jpg"
+      # image=params[:image]
+    # end
+
+    redirect_to host_user_path(@host_user)
+  end
+
   
   private
   def user_params
