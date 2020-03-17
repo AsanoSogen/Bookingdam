@@ -15,7 +15,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   if Rails.env.development? || Rails.env.test?
     storage :file
   else
-    storage :file
+    storage :fog
   end
 
   process resize_to_fit: [800, 800]
