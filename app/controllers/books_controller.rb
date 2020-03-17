@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :set_user, except: [:show, :create,:new]
 
   def index
-    @books = Book.includes(:user)
+    @books = @user.books.includes(:user)
   end
   
   def new
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     else
       render :new
     end
-    redirect_to user_path(current_user), notice: " #{@book.title} を登録しました"
+    redirect_to user_path(current_user)
   end
   
   def update
