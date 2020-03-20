@@ -1,0 +1,64 @@
+.show-header {
+    color: #777777;
+    height: 80px;
+    background-color: #E6FFE9;
+    font-size: 30px;
+    padding-top: 25px;
+    padding-left: 80px;
+    display: flex;
+
+    .show-header-logo {
+        font-size: 35px;
+    }
+    .show-header-menu {
+        font-size: 15px;
+        margin-bottom: 50px;
+        position: absolute;
+        top: 20px;
+        right: 10px;
+    }
+}
+
+.show-main {
+    .show-main-container {
+        width: 1440px;
+        height: 898px;
+        background-color: #F5F5F5;
+        margin-right: auto;
+
+        img {
+            width: 1440px;
+            overflow: hidden;
+            object-fit: cover;
+            height: 300px;
+
+        }
+
+        p {
+              text-align: center;
+              margin-left: 600px;
+              font-size: 50px;
+              color: #555555;
+              position: absolute;
+              top: 200px;
+              font-weight: bold;
+          }
+
+          
+      }
+
+    .show-posts-container {
+        width: 1240px;
+        height: 550px;
+        background-color: white;
+        margin-left: 100px;
+        border: solid 1px #DDDDDD;
+        position: absolute;
+        top: 400px;
+
+        .host_user_biglist {
+            margin: 30px;
+        }
+    }
+
+}
