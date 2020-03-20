@@ -13,8 +13,10 @@ class User < ApplicationRecord
   validates :email,          presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password,       presence: true, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
   validates :password_confirmation, presence: true, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
+  mount_uploader :image, ImageUploader
   has_one :address
   accepts_nested_attributes_for :address
   has_many :books
+  
 
 end

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: :show
 
+
+
   def index
   end
 
@@ -15,24 +17,27 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # if @user.update(user_params)
-      # @host_user.image="#{@host_user.id}.jpg"
-      # image=params[:image]
-    # end
-
-    redirect_to host_user_path(@host_user)
+    @user.update(user_params)
+    if @user.save
+      @user.image="#{@user.id}.jpg"
+      image=params[:image]
+    end
+    
+    redirect_to user_path(@user)
   end
 
   
   private
   def user_params
-      params.require(:user).permit(
-          :nickname,
-          :email,
-          :password, 
-          :password_confirmation,
-          address_attributes: [:id, :phone_number, :postal_code, :prefectures, :municipalities, :address, :building]
-      )
+    params.require(:user).permit(
+      :nickname,
+      :email,
+      :password, 
+      :password_confirmation,
+      :image,
+      :text,
+      address_attributes: [:id, :phone_number, :postal_code, :prefectures, :municipalities, :address, :building]
+    )
   end
 
   def ensure_correct_user

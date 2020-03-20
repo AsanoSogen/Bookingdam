@@ -3,17 +3,32 @@
     =current_user.nickname + "様のページ"
   .show-header-menu
     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+    = link_to "編集する", edit_user_path, class: "btn"
 
-.show-main
-  .show-main-container
-    = image_tag "green.jpg", alt: "写真"   
-    %p 一覧
+-if @user.image&&@user.text.present?
+  .user-show-main 
+    .user-show-main__container
+      = image_tag "#{@user.image}", alt: "「編集する」からプロフィール画面,自己紹介文を設定することができます"
+    .user-show-main__profile
+      = "#{@user.text}" 
+      
+    .show-posts-container 
+      .show-posts-container1
+        =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
+      .host-show-posts-main
+        = render @books
+      
+-else
+  .show-main
+    .show-main-container
+      = image_tag "green.jpg", alt: "写真"   
+      %p 一覧
 
-  .show-posts-container 
-    .show-posts-container1
-      =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
-    .host-show-posts-main
-      = render @books
+    .show-posts-container 
+      .show-posts-container1
+        =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
+      .host-show-posts-main
+        = render @books
                  
     -# .show-posts-container
     -#     = form_with(url: search_host_users_path, local: true, method: :get, class: "search-form") do |form| 
