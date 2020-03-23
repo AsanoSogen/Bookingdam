@@ -1,8 +1,9 @@
   
 .show-posts-container{
-    margin-top: 50px;
-}
-.host-show-posts-main {
+  margin-top: 50px;
+  overflow: scroll;
+  .host-show-posts-main {
+  
     .book-info {
       margin-top: 50px;
       margin-bottom: 35px;
@@ -30,4 +31,5 @@
           }
         }
     }
+  }
 }

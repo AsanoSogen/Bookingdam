@@ -8,49 +8,53 @@
         .l-single-content
           = form_for @user, url: signup_users_path, method: :post do |f|
             = f.fields_for :address do |p|
-              .form-mail
+              .form-group
                 .form-mail_label
                   = p.label :postal_code, "郵便番号"
                   %span.form-require 必須
-                = p.text_field :postal_code,{class: "input-default2", placeholder: ""}
-              .form-mail
+                  = p.text_field :postal_code,{class: "input-default2", placeholder: "(例)1001000"}
+              .form-group
                 .form-mail_label
                   = p.label :prefectures, "都道府県"
                   %span.form-require 必須
-                = p.select :prefectures, Address.prefectures.keys, {prompt: "選択してください"}, class: "input-default2"
-              .form-mail
+                  = p.select :prefectures, Address.prefectures.keys, {prompt: "選択してください"}, class: "input-default2"
+              .form-group
                 .form-mail_label
                   = p.label :municipalities, "市区町村"
                   %span.form-require 必須
-                = p.text_field :municipalities,{class: "input-default2", placeholder: ""}
-              .form-mail
+                  = p.text_field :municipalities,{class: "input-default2", placeholder: "(例)○◯市〇〇区"}
+              .form-group
                 .form-mail_label
                   = p.label :address, "番地"
                   %span.form-require 必須
-                = p.text_field :address,{class: "input-default2", placeholder: ""}
-              .form-mail
+                  = p.text_field :address,{class: "input-default2", placeholder: "(例)〇〇番地"}
+              .form-group
                 .form-mail_label
                   = p.label :building, "建物名"
-                = p.text_field :building,{class: "input-default2", placeholder: ""}
-              .form-mail
+                  = p.text_field :building,{class: "input-default2", placeholder: "(例)山田ビル２階B"}
+              .form-group
                 .form-mail_label
                   = p.label :phone_number, "電話番号"
                   %span.form-require 必須
-                = p.text_field :phone_number,{class: "input-default2", placeholder: ""}
+                  = p.text_field :phone_number,{class: "input-default2", placeholder: "(例)08033334444"}
+              
+              .form-group
+                %p.l-single-text
+                  ※安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
 
               = f.submit '登録を完了する', class: "btn_default_btn"
-    .mains__footer
-      %ul.mains__footer__content
-        %li
-          = link_to "#" do
-            会社概要（運営会社）
-        %li
-          = link_to "#" do
-            プライバシーポリシー
-        %li
-          = link_to "#" do
-            Bookingdam利用規約
-      .mains__footer__logo
-        -# = link_to image_tag('logo.png', class: 'logo__image'), "#"
+  .mains__footer
+    %ul.mains__footer__content
+      %li
+        = link_to "#" do
+          会社概要（運営会社）
+      %li
+        = link_to "#" do
+          プライバシーポリシー
+      %li
+        = link_to "#" do
+          Bookingdam利用規約
+    .mains__footer__logo
+      -# = link_to image_tag('logo.png', class: 'logo__image'), "#"
       %p.mains__footer__c-mark
         © Bookingdam
