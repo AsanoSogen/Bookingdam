@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index,:show, :edit, :update] 
-  resources :books, only: [:index, :show, :create,:new]
+
+  resources :books, only: [:index, :show, :create,:new] do
+    resources :reservations
+  end 
   
 end

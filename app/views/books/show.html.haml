@@ -1,0 +1,45 @@
+.book
+  .book-head
+    %h2 予約内容
+  .book-detail
+    .book-detail-2
+      %h2
+        =@book.title 
+
+    .book-main
+      =image_tag(@book.image.url) unless @book.image.nil?
+    .book-main2
+      .book-main2-text
+        %h3
+          =@book.text
+      .book-main2-day
+        %p.book-main2-day-1 
+          %p
+            イベント開催日時: 
+            = I18n.l(@book.published_at)
+        %p.book-main2-day-1
+          %p
+            予約締め切り:
+            = I18n.l(@book.end_day, format: :long)
+    
+      .book-main2-reservation
+        = form_for [@book, @book.reservations.new] do |f| 
+          .book-main2-reservation-btn
+            = f.submit "このイベントを予約する"
+
+.mains--footer
+  %ul.mains__footer__content
+    %li
+      = link_to "#" do
+        会社概要（運営会社）
+    %li
+      = link_to "#" do
+        プライバシーポリシー
+    %li
+      = link_to "#" do
+        Bookingdam利用規約
+  .mains__footer__logo
+    = link_to image_tag('book.jpeg', class: 'logo__image'), "#"
+  %p.mains__footer__c-mark
+    © Bookingdam,inc.
+    

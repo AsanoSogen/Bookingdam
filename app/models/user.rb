@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_one :address
   accepts_nested_attributes_for :address
   has_many :books
+  has_many :reservations, dependent: :destroy
   
 
 end
