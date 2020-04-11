@@ -12,3 +12,4 @@ class Address < ActiveRecord::Migration[5.0]
     end
   end
 end
+# AIzaSyAnDDNd-rG8Zfk5YM29i8GPKIwcx02WXVM
