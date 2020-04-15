@@ -54,4 +54,3 @@ production:
   username: root
   password: Sogen0921
   socket: /var/lib/mysql/mysql.sock
-  port: 3306
