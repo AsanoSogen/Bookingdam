@@ -15,7 +15,7 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1'
     }
 
-    config.fog_directory  = 'bookingdam'
+    config.fog_directory  = 'www.bookingdam.com'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/www.bookingdam.com'
   end
 end
