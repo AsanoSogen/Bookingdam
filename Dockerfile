@@ -6,15 +6,17 @@ RUN apt-get update && apt-get install -y mysql-client --no-install-recommends &&
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
   
 # 作業ディレクトリを/bookingdamに指定
-RUN mkdir /bookingdam
-WORKDIR /bookingdam
+RUN mkdir /Bookingdam
+
+ENV APP_ROOT /Bookingdam
+WORKDIR $APP_ROOT
 
 # ローカルのGemfileをDokcerにコピー
-COPY Gemfile /bookingdam/Gemfile
+COPY ./Gemfile /$APP_ROOT/Gemfile
+ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 # /rails_appディレクトリ上でbundle install
-RUN gem install bundler
+RUN gem install bundler:2.1.4
 RUN bundle install
 
-
-ADD . /bookingdam
+ADD . $APP_ROOT
