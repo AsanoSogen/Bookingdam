@@ -1,20 +1,39 @@
 version: '3'
 services:
+  app:
+    build:
+      context: .
+    environment:
+      MYSQL_ROOT_PASSWORD: Sogen0921
+      MYSQL_USER: root
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/Bookingdam
+      - public-data:/Bookingdam/public
+      - tmp-data:/Bookingdam/tmp
+      - log-data:/Bookingdam/log
+    depends_on:
+      - db
+
   db:
     image: mysql:5.6
     environment:
       MYSQL_ROOT_PASSWORD: Sogen0921
       MYSQL_USER: root
-    ports:
-      - "3306:3306"
-
-  web:
-    build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    
     volumes:
-      - .:/Bookingdam
+      - db-data:/var/lib/mysql
+  web:
+    build: 
+      context: containers/nginx
+    volumes:
+      - public-data:/Bookingdam/public
+      - tmp-data:/Bookingdam/tmp
     ports:
-      - "3000:3000"
-    links:
-      - db
+      - "80:80"
+    depends_on:
+      - app
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:

@@ -15,8 +15,8 @@ default: &default
   pool: 5
   username: root
   password: Sogen0921
-  # host: db 
-  socket: /tmp/mysql.sock
+  host: db 
+  # socket: /tmp/mysql.sock
 
 development:
   <<: *default

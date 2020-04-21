@@ -20,3 +20,5 @@ RUN gem install bundler:2.1.4
 RUN bundle install
 
 ADD . $APP_ROOT
+
+RUN mkdir -p tmp/sockets
