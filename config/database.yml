@@ -15,8 +15,8 @@ default: &default
   pool: 5
   username: root
   password: Sogen0921
-  host: db 
-  # socket: /tmp/mysql.sock
+  # host: db #Docker使用時はこちらのコメントアウトを解除
+  socket: /tmp/mysql.sock #Docker使用時はこちらの記述をコメントアウトすること
 
 development:
   <<: *default
