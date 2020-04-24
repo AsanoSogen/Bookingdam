@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "5.1.1",
+    "core-js": "^3.6.5",
+    "regenerator-runtime": "^0.13.5",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
