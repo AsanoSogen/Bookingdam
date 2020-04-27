@@ -8,7 +8,11 @@
 // layout file, like app/views/layouts/application.html.erb
 require("jquery");
 require("bootstrap");
+import '../javascripts/application';
+import '../src/application';
 
+require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
+
+console.log('Hello World from Webpacker');
 
 // import "../src/application.scss";
-console.log('Hello World from Webpacker')
