@@ -10,5 +10,5 @@ require("jquery");
 require("bootstrap");
 
 
-import "../src/application.scss";
+// import "../src/application.scss";
 console.log('Hello World from Webpacker')
