@@ -1,1 +1,1 @@
-$('.date-picker').datetimepicker(pickTime: false);
+//$('.date-picker').datetimepicker(pickTime: false);
