@@ -10,8 +10,10 @@ require("jquery");
 require("bootstrap");
 import '../javascripts/application';
 import '../src/application.scss';
-
 require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
+// 画像表示
+const images = require.context("../images", true);
+const imagePath = name => images(name, true);
 
 console.log('Hello World from Webpacker');
 
