@@ -10,6 +10,8 @@ require("jquery");
 require("bootstrap");
 import '../javascripts/application';
 import '../src/application.scss';
+import '../images/book.jpeg'
+
 require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
 // 画像表示
 const images = require.context("../images", true);
