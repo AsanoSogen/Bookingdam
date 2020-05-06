@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 
   def index
-    # @user = User.find(params[:id])
+    # @users = User.all
   end
 
   def show
@@ -29,10 +29,10 @@ class UsersController < ApplicationController
 
   def search
     return nil if params[:keyword] == ""
-    @users = User.where(['nickname LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(15)
+    @users = User.where(['nickname LIKE(?)', "%#{params[:keyword]}%"] )
     respond_to do |format|
-      format.html
-      format.json
+      format.html { redirect_to :root }
+      format.json { render 'search.json.jbuilder' }
     end
   end
   
