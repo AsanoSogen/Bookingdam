@@ -27,6 +27,13 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    @users = User.where(['nickname LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(15)
+    respond_to do |format| 
+      format.json { render 'index', json: @users } #json形式のデータを受け取ったら、@usersをデータとして返す そしてindexをrenderで表示する
+    end
+  end
   
   private
   def user_params

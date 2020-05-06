@@ -8,6 +8,16 @@
 import Vue from 'vue'
 import App from '../app.vue'
 
+// documentとは、HTML要素全体のことを意味します。
+// documentオブジェクトを使うことで全てのHTML要素を操作することができます。
+// addEventListener()とは、ブラウザ上で発生したイベントに応じて、指定した処理を呼び出すことのできるメソッドです。
+// どのようなイベントに応じるのかを、第１引数に指定します。
+// そのイベントに応じて、どのような処理を行うのかを第２引数に指定します。
+// ここでは、第１引数にDOMContentLoadedが指定されています。
+// DOMContentLoadedとは、「DOMツリーの構築が完了した時点」のことを意味します。
+// つまり、このaddEventListener()メソッドはHTMLタグで囲まれた全ての要素が読み込まれた時点で処理が開始されます。
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     render: h => h(App)
