@@ -5,7 +5,7 @@ $(function() {
     let html = `<div class = "user_biglist">
                   <div class = "user_list">
                     <a href= "/users/${user.id}">
-                      <span>ユーザー名:  </span>${user.nickname}
+                      <p>ユーザー名:${user.nickname}</p>
                     </a>
                   </div>
                 </div>`;
@@ -27,6 +27,7 @@ $(function() {
         dataType: 'json'
       })
       .done(function(users) {
+        console.log(users);
         $(".contents_row").empty();
         if (users.length !== 0) {
           users.forEach(function(user){
