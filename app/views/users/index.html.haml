@@ -16,11 +16,27 @@
 .main
   .main-container
     .main-image
+      %h1 「参加したい」をもっと手軽に
+      -# = image_tag 'booking.jpeg', class: 'image-book-tag'
       .show-posts-container
         = form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| 
           = form.text_field :keyword, placeholder: "主催者を検索する", class: "search-input"
           = form.submit "検索", class: "search-btn"
           .contents_row
-            
+    -# = javascript_pack_tag 'hello_vue'
+.mains__footer
+  %ul.mains__footer__content
+    %li
+      = link_to "#" do
+        会社概要（運営会社）
+    %li
+      = link_to "#" do
+        プライバシーポリシー
+    %li
+      = link_to "#" do
+        Bookingdam利用規約
+  .mains__footer__logo
+    = link_to image_pack_tag('book.jpeg'), "#"
+    %p.mains__footer__c-mark
+      © Booingdam
 
-  = javascript_pack_tag 'hello_vue'

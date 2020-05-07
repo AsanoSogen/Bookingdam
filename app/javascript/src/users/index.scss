@@ -21,34 +21,50 @@
 }
 
 .main {
+    height: 900px;
     .main-container {
-        width: 1440px;
+        width: 100%;
         //height: 857px;
         background-color: #F5F5F5;
         margin-right: auto;
+        background: #000;
+
 
       .main-image {
-          height: 300px;
-          width: 1440px;
-          position: absolute; 
+        background-image: url("../images/booking.jpg");
+        height: 900px;
+        width: 1600px;
+        position: absolute; 
+        background-size:  cover;
+        background-color:rgba(255,255,255,0.8);
+        
 
-          img {
-            width: 1440px;
-            overflow: hidden;
-            object-fit: cover;
-            height: 300px;
-
-          }
+        h1{
+            margin-left: 35%;
+            margin-top: 260px;
+            position: absolute;
+            font-size: 65px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.06);
+            color: #66CDAA;
+        }
+      
+        .show-posts-container {
+            margin-left: 40px;
+            .search-input{    
+            }
+            .contents_row{
+                .user_biglist{
+                    .user_list{
+                        width: 300px;
+                        background-color: navajowhite;
+                        padding-bottom: 5px;
+                        border-bottom: solid 1px;
+                    }
+                }
+            }
+        }
+      
       }
-
-      .posts-container {
-         width: 1240px;
-         height: 550px;
-         margin-top: 305px;
-         background-color: white;
-         margin-left: 100px;
-         border: solid 1px #DDDDDD;
-         position: absolute;
-     }
     }
 }
