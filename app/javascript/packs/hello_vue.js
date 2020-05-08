@@ -5,9 +5,12 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
-import App from '../app.vue'
-
+import Vue from "vue/dist/vue.esm"
+// import App from '../app.vue'
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/ja'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI, { locale });
 // documentとは、HTML要素全体のことを意味します。
 // documentオブジェクトを使うことで全てのHTML要素を操作することができます。
 // addEventListener()とは、ブラウザ上で発生したイベントに応じて、指定した処理を呼び出すことのできるメソッドです。
@@ -18,15 +21,40 @@ import App from '../app.vue'
 // つまり、このaddEventListener()メソッドはHTMLタグで囲まれた全ての要素が読み込まれた時点で処理が開始されます。
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
-
-  console.log(app)
-})
-
+// document.addEventListener('DOMContentLoaded', () => {
+var Main = {
+  data() {
+    return {
+      pickerOptions: {
+        shortcuts: [{
+          text: 'Today',
+          onClick(picker) {
+            picker.$emit('pick', new Date());
+          }
+        }, {
+          text: 'Yesterday',
+          onClick(picker) {
+            const date = new Date();
+            date.setTime(date.getTime() - 3600 * 1000 * 24);
+            picker.$emit('pick', date);
+          }
+        }, {
+          text: 'A week ago',
+          onClick(picker) {
+            const date = new Date();
+            date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+            picker.$emit('pick', date);
+          }
+        }]
+      },
+      value1: ''
+    };
+  }
+};
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app');
+  // document.body.appendChild(app.$el)
+// アロー関数として短縮すると同時に、引数に使われるcreateElementという変数もhという名前に置き換えられています
 
 // The above code uses Vue without the compiler, which means you cannot
 // use Vue to target elements in your existing html templates. You would

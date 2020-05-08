@@ -2,13 +2,15 @@
   .l-single-container
     %h2.l-single-head.registration イベント登録
     .l-single-content
-      = form_with(url: books_path, local: true, method: :post) do |f|
+      = form_with(url: books_path, local: true, method: :post,  id: "app") do |f|
         = f.hidden_field :book_id, value: @book.id ,multiple: true
         .form-mail
           .form-mail_label
             = f.label :published_at,"開催日時"
             %span.form-require 必須
-          = f.text_field :published_at, use_month_numbers: true, start_year: 2020, type:"datetime",class: "form-control_date"
+          = f.text_field :published_at, placeholder:"Select date and time", type: "datetime", "v-model" => 'value1'
+          %template
+            %el-date-picker{:placeholder => "開催日時を選択してください", :type => "datetime", "v-model" => 'value1'}
         .form-mail
           .form-mail_label
             = f.label :end_day, "予約締切"
@@ -47,6 +49,7 @@
         = f.submit "送信する", class: "btn btn-danger btn-wide"  
 
         = javascript_include_tag 'newmap'
+        = javascript_pack_tag 'hello_vue'
 
 .mains__footer
   %ul.mains__footer__content
