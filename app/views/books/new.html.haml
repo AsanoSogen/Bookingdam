@@ -48,9 +48,6 @@
 
         = f.submit "送信する", class: "btn btn-danger btn-wide"  
 
-        = javascript_pack_tag 'hello_vue'
-        = javascript_include_tag 'newmap'
-
 .mains__footer
   %ul.mains__footer__content
     %li
@@ -66,3 +63,7 @@
     = link_to image_pack_tag('book.jpeg'), "#"
     %p.mains__footer__c-mark
       © Booingdam
+
+
+= javascript_pack_tag 'hello_vue'
+= javascript_include_tag 'newmap'
