@@ -15,7 +15,10 @@
           .form-mail_label
             = f.label :end_day, "予約締切"
             %span.form-require 必須
-          = f.date_select :end_day, use_month_numbers: true, start_year: 2020,id: "datepicker", type:"text"
+          = f.text_field :end_day, placeholder: "Pick a day", "v-model" => "value2", ":picker-options" => "pickerOptions"
+          %template
+            %el-date-picker{":picker-options" => "pickerOptions", :placeholder => "Pick a day", :type => "date", "v-model" => "value2"}
+            
         .form-mail
           .form-mail_label
             = f.label :title, "イベント名"
