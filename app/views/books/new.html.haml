@@ -1,55 +1,57 @@
-%main.single-main
-  .l-single-container
-    %h2.l-single-head.registration イベント登録
-    .l-single-content
-      = form_with(url: books_path, local: true, method: :post,  id: "app") do |f|
-        = f.hidden_field :book_id, value: @book.id ,multiple: true
-        .form-mail
-          .form-mail_label
-            = f.label :published_at,"開催日時"
-            %span.form-require 必須
-          = f.text_field :published_at, placeholder:"Select date and time", type: "datetime", "v-model" => 'value1'
-          %template
-            %el-date-picker{:placeholder => "開催日時を選択してください", :type => "datetime", "v-model" => 'value1'}
-        .form-mail
-          .form-mail_label
-            = f.label :end_day, "予約締切"
-            %span.form-require 必須
-          = f.text_field :end_day, placeholder: "Pick a day", "v-model" => "value2", ":picker-options" => "pickerOptions"
-          %template
-            %el-date-picker{":picker-options" => "pickerOptions", :placeholder => "Pick a day", :type => "date", "v-model" => "value2"}
-            
-        .form-mail
-          .form-mail_label
-            = f.label :title, "イベント名"
-            %span.form-require 必須
-          = f.text_field :title
-        
-        .form-mail
-          .form-mail_label
-            = f.label :text, "イベント内容"
-            %span.form-require 必須
-          = f.text_area :text
+.single-container
+  .single-container--header
+  %main.single-main
+    .l-single-container
+      %h2.l-single-head.registration イベント登録
+  .l-single-content
+    = form_with(url: books_path, local: true, method: :post,  id: "app") do |f|
+      = f.hidden_field :book_id, value: @book.id ,multiple: true
+      .form-mail
+        .form-mail_label
+          = f.label :published_at,"開催日時"
+          %span.form-require 必須
+        = f.text_field :published_at, placeholder:"Select date and time", type: "datetime", "v-model" => 'value1', class: "calender"
+        %template
+          %el-date-picker{:placeholder => "開催日時を選択", :type => "datetime", "v-model" => 'value1'}
+      .form-mail
+        .form-mail_label
+          = f.label :end_day, "予約締切"
+          %span.form-require 必須
+        = f.text_field :end_day, placeholder: "Pick a day", "v-model" => "value2", ":picker-options" => "pickerOptions", class: "calender"
+        %template
+          %el-date-picker{":picker-options" => "pickerOptions", :placeholder => "予約締切日を選択", :type => "date", "v-model" => "value2"}
+          
+      .form-mail
+        .form-mail_label
+          = f.label :title, "イベント名"
+          %span.form-require 必須
+        = f.text_field :title, class: "event-name"
+      
+      .form-mail
+        .form-mail_label
+          = f.label :text, "イベント内容"
+          %span.form-require 必須
+        = f.text_area :text, class: "event-detail"
 
-        .form-mail
-          .form-mail_label
-            = f.label :image, "イメージ写真" 
-            %span.form-require 必須
-          = f.file_field :image
+      .form-mail
+        .form-mail_label
+          = f.label :image, "イメージ写真" 
+          %span.form-require 必須
+        = f.file_field :image
 
-        .form-mail
-          .form-mail_label
-            = f.label :address, "開催場所"
-            %span.form-require 必須
-          = f.text_field :address, class: "city_address"
-          %button{id:"searchAddressBtn", value:"検索", type:"button"}
-            場所を検索
+      .form-mail
+        .form-mail_label
+          = f.label :address, "開催場所"
+          %span.form-require 必須
+        = f.text_field :address, class: "city_address"
+        %button{id:"searchAddressBtn", value:"検索", type:"button", class:"form-mail__search_button"}
+          場所を検索
 
-          #map{style: "width: 100%; height: 160px;"}
-          = f.text_field :latitude, readonly: "readonly", id:"inputLat"    
-          = f.text_field :longitude, readonly: "readonly", id:"inputLng"
+        #map{style: "width: 100%; height: 360px;"}
+        = f.text_field :latitude, readonly: "readonly", id:"inputLat", class: "form-mail__map"   
+        = f.text_field :longitude, readonly: "readonly", id:"inputLng", class: "form-mail__map"
 
-        = f.submit "送信する", class: "btn btn-danger btn-wide"  
+      = f.submit "送信する", class: "book-btn"  
 
 .mains__footer
   %ul.mains__footer__content

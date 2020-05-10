@@ -1,0 +1,65 @@
+.form-mail {
+    text-align: center;
+    margin-bottom: 40px;
+
+    &_label {
+        margin-bottom: 20px;
+
+        label {
+            font-size: 20px;
+        }
+        .form-require {
+            font-size: 15px;
+            color: red;
+        }    
+    }
+
+    .calender {
+        display: none;
+    }
+    .el-date-editor.el-input.el-input--prefix.el-input--suffix.el-date-editor--datetime{
+        width: 360px;
+    }
+    .el-date-editor.el-input.el-input--prefix.el-input--suffix.el-date-editor--date {
+        width: 360px;
+    }
+
+    .event-name {
+        width: 360px;
+    }
+    .event-detail {
+        height: 240px;
+        width: 400px;
+    }
+    .city_address {
+        width: 500px;
+        height: 35px;
+        margin-right: 50px;
+        margin-bottom: 40px;            
+    }
+    &__search_button {
+        color: black;
+        background-color: lightgreen;
+        height: 40px;
+        width: 150px;
+        margin-bottom: 30px;
+        border-radius:10px;
+    }
+    &__map {
+        display: none;
+    }
+}
+.book-btn{
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 40px;
+    width: 40%;
+    height: 50px;
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border-radius:30px;
+}
