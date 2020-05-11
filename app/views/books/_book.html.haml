@@ -6,11 +6,12 @@
     .book-info2
       .book-data2
         =image_tag(book.image.url, size: "300x200") unless book.image.nil?
-    .book-data3
-      = book.text
-    .book-data4
-      イベント開催日時:  
-      = I18n.l(book.published_at)
-    .book-data5
-      予約締め切り:
-      = I18n.l(book.end_day, format: :long)
+      .book-data3
+        = book.text
+    .book-info3
+      .book-data4
+        イベント開催日時:  
+        = I18n.l(book.published_at)
+      .book-data5
+        予約締め切り:
+        = I18n.l(book.end_day, format: :long)

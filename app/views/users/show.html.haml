@@ -1,6 +1,8 @@
 .show-header
   .show-header-logo
-    =current_user.nickname + "様のページ"
+    =current_user.nickname 
+  .show-header-container
+    =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn", data: {"turbolinks" => false}
   .show-header-menu
     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
     = link_to "編集する", edit_user_path, class: "btn"
@@ -9,12 +11,12 @@
   .user-show-main 
     .user-show-main__container
       = image_tag "#{@user.image}", alt: "「編集する」からプロフィール画面,自己紹介文を設定することができます"
-    .user-show-main__profile
-      = "#{@user.text}" 
+      .user-show-main__container__profile
+        = "#{@user.text}" 
       
     .show-posts-container 
-      .show-posts-container1
-        =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
+      %h1.show-posts-container-title 
+        イベント一覧
       .host-show-posts-main
         = render @books
       
@@ -23,12 +25,11 @@
     .show-main-container
       = image_tag "green.jpg", alt: "写真"   
       %p 一覧
-
-    .show-posts-container 
-      .show-posts-container1
-        =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
-      .host-show-posts-main
-        = render @books
+  .show-posts-container 
+    .show-posts-container1
+      =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
+    .host-show-posts-main
+      = render @books
         
 .mains__footer
   %ul.mains__footer__content

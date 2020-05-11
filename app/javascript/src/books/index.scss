@@ -1,34 +1,48 @@
 .show-posts-container{
-    margin-top: 50px;
-    overflow: scroll;
+    margin-top: 100px;
     .host-show-posts-main {
-    
+      overflow: scroll;
+      background-color: white;
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+      border: solid 1px #DDDDDD;
+
       .book-info {
-        margin-top: 50px;
-        margin-bottom: 35px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 3%;
+        padding-right: 3%;
         border: 1px solid #ddd;
-          a {
-            text-decoration: none;
-            color: black;
-         
-            .book-data1 { 
-                margin: 20px;
-            }
-            .book-info2 {
-                display: flex;
-                .book-data2 {
-                    img {
-                    height: 300px;
-                    }
-                }
-                .book-data3 {
-                  margin-left: 100px;
-                  width: 610px;
-                  margin-right: 45px;
-                }
-  
-            }
+
+        a {
+          text-decoration: none;
+          color: black;
+        
+          .book-data1 { 
+            text-align: center;
+            font-size: 30px;
+            margin: 20px;
           }
+          .book-info2 {
+              display: flex;
+              .book-data2 {
+                  img {
+                  height: 300px;
+                  }
+              }
+              .book-data3 {
+                padding-top: 20px;
+                margin-left: 100px;
+                width: 60%;
+                margin-right: 45px;
+              }
+
+          }
+          .book-info3 {
+            margin-left: 60%;
+          }
+        }
       }
     }
 }

@@ -1,80 +1,117 @@
 .show-header {
     color: #777777;
-    height: 80px;
+    height: 160px;
     background-color: #E6FFE9;
     font-size: 30px;
-    padding-top: 25px;
+    padding-top: 15px;
     padding-left: 80px;
     display: flex;
+    position: relative;
 
-    .show-header-logo {
+    &-logo {
+        position: absolute;
         font-size: 35px;
+        width: 600px;
+        max-height: 135px;
     }
-    .show-header-menu {
+    &-container {
+        top: 55%;
+        /* left: 18%; */
+        background-color: red;
+        color: white;
+        height: 50px;
+        width: 200px;
+        text-align: center;
+        border-radius: 15px;
+        position: absolute;
+        .btn {
+            color: white;
+            font-size: 17px;
+            line-height: 40px;
+        }
+
+    }
+    &-menu {
+        position: absolute;
+        right: 3%;
+        top: 30%;
         font-size: 15px;
         margin-bottom: 50px;
-        position: absolute;
-        top: 20px;
-        right: 10px;
+        .btn {
+            height: 45px;
+            line-height: 30px;
+            margin-right: 60px;
+            width: 140px;
+            background-color: skyblue;
+            color: white;
+            margin-bottom: 20px;
+        }
     }
 }
 .user-show-main {
+    background-color: #CCCCCC;
+    padding-bottom: 150px;
+
     &__container {
         width: 100%;
-        height: 1300px;
-        background-color: #CCCCCC;
-        margin-right: auto;
+        display: flex;
 
         img {
-            width: 400px;
+            width: 50%;
             overflow: hidden;
+            -o-object-fit: cover;
             object-fit: cover;
-            height: 400px;
-            margin-left: 100px;
+            height: 600px;
+            margin-left: 5%;
+            margin-right: 5%;
             margin-top: 70px;
 
         }
 
         p {
-              text-align: center;
-              margin-left: 600px;
-              font-size: 50px;
-              color: #555555;
-              position: absolute;
-              top: 200px;
-              font-weight: bold;
-          }
+            text-align: center;
+            margin-left: 600px;
+            font-size: 50px;
+            color: #555555;
+            position: absolute;
+            top: 200px;
+            font-weight: bold;
+        }
 
-          
-    }
-    &__profile {
-        position: absolute;
-        height: 400px;
-        width: 45%;
-        /* right: 100px; */
-        top: 160px;
-        color: white;
-        line-height: 50px;
-        padding: 30px;
-        margin-left: 40%;
-        margin-right: 150px;
-        border: solid #ffffff 1px;
+        
+    
+        &__profile {
+            height: 570px;
+            /* right: 100px; */
+            color: white;
+            line-height: 50px;
+            margin-top: 70px;
+            padding: 30px;
+            margin-right: 5%;
+            border: solid #ffffff 1px;
 
+        }
     }
     .show-posts-container {
-        width: 1240px;
-        height: 550px;
-        background-color: white;
-        margin-left: 100px;
-        border: solid 1px #DDDDDD;
-        position: absolute;
-        top: 680px;
+        &-title {
+            margin-bottom: 50px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 50px;
+            color: whitesmoke;
+        }
 
-        .host_user_biglist {
-            margin: 30px;
+        .host-show-posts-main {
+            background-color: white;
+            width: 80%;
+            height: 700px;
+            margin-left: 10%;
+            margin-right: 10%;
+            border: solid 1px #DDDDDD;
         }
     }
 }
+
 .show-main {
     .show-main-container {
         width: 1440px;
@@ -91,30 +128,30 @@
         }
 
         p {
-              text-align: center;
-              margin-left: 600px;
-              font-size: 50px;
-              color: #555555;
-              position: absolute;
-              top: 200px;
-              font-weight: bold;
-          }
-
-          
-      }
-
-    .show-posts-container {
-        width: 1240px;
-        height: 550px;
-        background-color: white;
-        margin-left: 100px;
-        border: solid 1px #DDDDDD;
-        position: absolute;
-        top: 400px;
-
-        .host_user_biglist {
-            margin: 30px;
+            text-align: center;
+            margin-left: 600px;
+            font-size: 50px;
+            color: #555555;
+            position: absolute;
+            top: 200px;
+            font-weight: bold;
         }
+
+        
     }
+
+    // .show-posts-container {
+    //     width: 1240px;
+    //     height: 550px;
+    //     background-color: white;
+    //     margin-left: 100px;
+    //     border: solid 1px #DDDDDD;
+    //     position: absolute;
+    //     top: 400px;
+
+    //     .host_user_biglist {
+    //         margin: 30px;
+    //     }
+    // }
 
 }

@@ -18,7 +18,7 @@
     .main-image
       %h1 「参加したい」をもっと手軽に
       -# = image_tag 'booking.jpeg', class: 'image-book-tag'
-      .show-posts-container
+      .search-users
         = form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| 
           = form.text_field :keyword, placeholder: "主催者を検索する", class: "search-input"
           = form.submit "検索", class: "search-btn"
