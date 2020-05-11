@@ -5,7 +5,7 @@
       = book.title
     .book-info2
       .book-data2
-        =image_tag(book.image.url, size: "300x200") unless book.image.nil?
+        =image_tag(book.image.url) unless book.image.nil?
       .book-data3
         = book.text
     .book-info3

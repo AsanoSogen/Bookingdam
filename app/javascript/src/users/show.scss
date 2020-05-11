@@ -57,7 +57,6 @@
         display: flex;
 
         img {
-            width: 50%;
             overflow: hidden;
             -o-object-fit: cover;
             object-fit: cover;
@@ -81,6 +80,7 @@
         
     
         &__profile {
+            width: 57%;
             height: 570px;
             /* right: 100px; */
             color: white;
