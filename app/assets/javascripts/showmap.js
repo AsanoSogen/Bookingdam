@@ -1,14 +1,16 @@
-$(function(){
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'show_map'}}, function(){
-      markers = handler.addMarkers([
-        {
-          "lat": gon.lat,
-          "lng": gon.lng,
-        }
-      ]);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(16);
+
+
+function initMap(){
+
+    map = new google.maps.Map(document.getElementById('show_map'), { 
+        center: {lat: gon.lat, lng: gon.lng},
+        zoom: 15, 
     });
-});
+
+    marker = new google.maps.Marker({ 
+        position:  {lat: gon.lat, lng: gon.lng}, 
+        map: map 
+    });
+}
+
+    

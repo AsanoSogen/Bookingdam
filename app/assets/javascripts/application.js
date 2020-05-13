@@ -16,5 +16,4 @@
 //= require_tree .
 //= underscore
 //= require gmaps/google
-//= require newmap.js
 //= require showmap.js

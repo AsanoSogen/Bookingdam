@@ -7,15 +7,15 @@ function initMap() {
   var lat = 35.6896342;
   var lng = 139.6921006999999;
 
-    var myLatLng = new google.maps.LatLng(lat, lng)
-    var mapOptions = {
-        center: myLatLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+  var myLatLng = new google.maps.LatLng(lat, lng)
+  var mapOptions = {
+      center: myLatLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
 
-    gMap = new google.maps.Map(document.getElementById("map"), mapOptions);
-    gMarkerCenter = drawMarkerCenterInit(myLatLng);
+  gMap = new google.maps.Map(document.getElementById("map"), mapOptions);
+  gMarkerCenter = drawMarkerCenterInit(myLatLng);
 }
 
 function drawMarkerCenterInit(pos) {
