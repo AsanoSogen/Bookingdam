@@ -1,5 +1,5 @@
 .book-info
-  = link_to book_path(book.id) do
+  = link_to book_path(book.id),data: {"turbolinks" => false} do
     .book-data1
       イベント名:
       = book.title

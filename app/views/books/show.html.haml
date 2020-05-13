@@ -13,8 +13,10 @@
         %h3
           =@book.text
       
-      .book-main2-map(style="width: 70%;" )
-        #map1(style="height: 200px;" )
+      .book-main2-map
+        .book-main2-map-address
+          =@book.address
+        #show_map{style: "height: 200px; width: 400px;"}
 
       .book-main2-day
         %p.book-main2-day-1 
@@ -47,4 +49,5 @@
     %p.mains__footer__c-mark
       © Booingdam
     
+
 = javascript_include_tag 'newmap'

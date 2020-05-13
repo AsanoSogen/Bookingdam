@@ -73,6 +73,7 @@ gem 'i18n_generators'
 
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'gon'
 gem 'webpacker', github: 'rails/webpacker'
 gem 'coffee-rails', '~> 4.2'
+gem 'gon'
+gem "dotenv-rails"

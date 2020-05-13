@@ -4,14 +4,18 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Bookingdam
     = csrf_meta_tags
+    = csp_meta_tag
+
+    = include_gon
+
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' 
     = javascript_pack_tag 'application','data-turbolinks-track': 'reload' 
-    = include_gon
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = yield
     %script{src: "https://code.jquery.com/jquery-3.3.1.min.js"}
-    %script{async: "false", defer: "defer",src: "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_API_KEY"]}&callback=initMap"}
-    -# %script{src: "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
+    %script{src: "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"}
+    -# %script{src: "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/src/data.json"}
+    %script{src: "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
     -# %script{src: "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"}
     -# %link{rel:"prefetch" ,href:"<%= asset_pack_path 'application.css' %>"} 

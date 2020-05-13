@@ -12,6 +12,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    gon.lat = @book.latitude
+    gon.lng = @book.longitude
   end
   
   def edit

@@ -6,22 +6,17 @@ function initMap() {
     
   var lat = 35.6896342;
   var lng = 139.6921006999999;
-  
-  var myLatLng = new google.maps.LatLng(lat, lng)
-  var mapOptions = {
-      center: myLatLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
 
-  gMap = new google.maps.Map(document.getElementById("map"), mapOptions);
-  gMarkerCenter = drawMarkerCenterInit(myLatLng);
+    var myLatLng = new google.maps.LatLng(lat, lng)
+    var mapOptions = {
+        center: myLatLng,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    gMap = new google.maps.Map(document.getElementById("map"), mapOptions);
+    gMarkerCenter = drawMarkerCenterInit(myLatLng);
 }
-
-window.onload = function () {
-  initMap();
-}
-
 
 function drawMarkerCenterInit(pos) {
   var markerCenter = new google.maps.Marker({
@@ -58,5 +53,21 @@ $(function(){
           alert('住所検索に失敗しました。<br>住所が正しいか確認してください');
         } 
     });
+  });
+});
+
+
+$(function(){
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: { scrollwheel: false }, internal: {id:'show_map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": gon.lat,
+        "lng": gon.lng,
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
   });
 });
