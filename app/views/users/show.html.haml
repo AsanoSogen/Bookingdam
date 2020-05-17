@@ -1,6 +1,6 @@
 .show-header
   .show-header-logo
-    =current_user.nickname 
+    =@user.nickname 
   .show-header-container
     =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn", data: {"turbolinks" => false}
   .show-header-menu

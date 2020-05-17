@@ -6,6 +6,7 @@
     -if user_signed_in?
       .listsRight__item.listsRight__item--first
         = link_to "ログアウト", destroy_user_session_path, method: :delete
+        = link_to "マイページ", current_user
       
     - else
       .listsRight__item.listsRight__item--first
