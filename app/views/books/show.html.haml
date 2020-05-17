@@ -15,14 +15,16 @@
       
       .book-main2-map
         .book-main2-map-address
-          =@book.address
-        #show_map{style: "height: 200px; width: 400px;"}
+          %p
+            開催場所:
+            =@book.address
+        .book-main2-map-address2{id: "show_map", style: "height: 230px; width: 550px;"}
 
       .book-main2-day
         %p.book-main2-day-1 
           %p
             イベント開催日時: 
-            = I18n.l(@book.published_at)
+            = I18n.l(@book.published_at) + "~"
         %p.book-main2-day-1
           %p
             予約締め切り:

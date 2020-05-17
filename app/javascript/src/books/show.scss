@@ -1,7 +1,7 @@
 .book{
     width: 100%;
     padding-top: 1px;
-    height: 1600px;
+    height: 1900px;
     background-color: whitesmoke;
   
     &-head{
@@ -17,7 +17,7 @@
     }
   
     &-detail{
-      height: 1400px;
+      height: 1700px;
       width: 70%;
       margin: auto;
       padding: 40px;
@@ -51,11 +51,24 @@
           padding-left: 100px;
           padding-right: 100px;
           h3{
+            font-size: 20px;
             text-align: left;
           }
         }
+        &-map{
+          &-address{
+            font-size: 20px;
+            padding-left: 100px;
+          }
+          &-address2{
+            margin: 0 auto;
+            margin-bottom: 30px;
+          }
+
+        }
         &-day{
-          width: 450px;
+          font-size: 20px;
+          width: 800px;
           padding-left: 100px;
           padding-right: 100px;
           &-1{
