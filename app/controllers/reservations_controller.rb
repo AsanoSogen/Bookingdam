@@ -2,6 +2,10 @@ class ReservationsController < ApplicationController
 
   before_action :set_book
 
+  def index
+    @reservations = @books.reservations.includes(:user)
+  end
+  
   def create
     @reservation = @book.reservations.create(reservation_params)
     redirect_to root_path notice:"予約が完了しました"

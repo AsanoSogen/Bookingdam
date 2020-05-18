@@ -29,11 +29,19 @@
           %p
             予約締め切り:
             = I18n.l(@book.end_day, format: :long)
-    
-      .book-main2-reservation
-        = form_for [@book, @book.reservations.new] do |f| 
-          .book-main2-reservation-btn
-            = f.submit "このイベントを予約する"
+        %p.book-main2-day-1
+          %p
+            = "現在、#{@reservations_count}" + "人が予約中"
+
+      -if @book.reserved_by?(current_user)
+        .book-main2-reservation
+          .book-main-reserve-notbtn
+            %h2 このイベントは予約済みです
+      -else  
+        .book-main2-reservation
+          = form_for [@book, @book.reservations.new] do |f| 
+            .book-main2-reservation-btn
+              = f.submit "このイベントを予約する"
       
 .mains__footer
   %ul.mains__footer__content

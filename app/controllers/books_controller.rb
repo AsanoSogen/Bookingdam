@@ -12,6 +12,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @user = @book.user
+    @reservations_count = Reservation.where(book_id: @book.id).count
     gon.lat = @book.latitude
     gon.lng = @book.longitude
   end

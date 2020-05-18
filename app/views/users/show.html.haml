@@ -1,8 +1,9 @@
 .show-header
   .show-header-logo
     =@user.nickname 
-  .show-header-container
-    =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn", data: {"turbolinks" => false}
+  -if @user.id == current_user.id
+    .show-header-container
+      =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn", data: {"turbolinks" => false}
   .show-header-menu
     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
     = link_to "編集する", edit_user_path, class: "btn"
