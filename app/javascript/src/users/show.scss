@@ -114,23 +114,34 @@
 }
 
 .show-main {
-    .show-main-container {
-        width: 1440px;
-        height: 898px;
+    background-color: #F5F5F5;
+    &-container {
+        width: 100%;
         background-color: #F5F5F5;
         margin-right: auto;
+        margin-bottom: 20px;
 
+        &-reservations{
+            overflow: scroll;
+            background-color: white;
+            height: 700px;
+            p{
+                text-align: center;
+                margin: 30px;
+                font-size: 20px;
+            }
+        }
         img {
-            width: 1440px;
+            width: 100%;
             overflow: hidden;
             object-fit: cover;
-            height: 300px;
+            height: 160px;
 
         }
 
         p {
             text-align: center;
-            margin-left: 600px;
+            left: 45%;
             font-size: 50px;
             color: #555555;
             position: absolute;
@@ -141,18 +152,24 @@
         
     }
 
-    // .show-posts-container {
-    //     width: 1240px;
-    //     height: 550px;
-    //     background-color: white;
-    //     margin-left: 100px;
-    //     border: solid 1px #DDDDDD;
-    //     position: absolute;
-    //     top: 400px;
+    .show-posts-container {
+        &-title {
+            margin-bottom: 50px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 50px;
+            color: black;
+        }
 
-    //     .host_user_biglist {
-    //         margin: 30px;
-    //     }
-    // }
+        .host-show-posts-main {
+            background-color: white;
+            width: 80%;
+            height: 700px;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-bottom: 40px;
+            border: solid 1px #DDDDDD;
+        }
+    }
 
 }

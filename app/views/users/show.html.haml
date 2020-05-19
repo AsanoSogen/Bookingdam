@@ -1,7 +1,7 @@
 .show-header
   .show-header-logo
     =@user.nickname 
-  -if @user.id == current_user.id
+  -if @user.id == current_user.id 
     .show-header-container
       =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn", data: {"turbolinks" => false}
   .show-header-menu
@@ -14,7 +14,12 @@
       = image_tag "#{@user.image}", alt: "「編集する」からプロフィール画面,自己紹介文を設定することができます"
       .user-show-main__container__profile
         = "#{@user.text}" 
-      
+    -if @user.id == current_user.id 
+      .show-main-container-reservations
+        - @reservation_books.each do |book|
+          %hr
+          %p
+            =link_to "#{book.title},   #{I18n.l(book.published_at)}~開始", book_path(book.id)
     .show-posts-container 
       %h1.show-posts-container-title 
         イベント一覧
@@ -25,12 +30,19 @@
   .show-main
     .show-main-container
       = image_tag "green.jpg", alt: "写真"   
-      %p 一覧
-  .show-posts-container 
-    .show-posts-container1
-      =link_to "イベント投稿する", new_book_path(book_id: @book) ,class: "btn"
-    .host-show-posts-main
-      = render @books
+      %p 予約一覧
+    -if @user.id == current_user.id 
+      .show-main-container-reservations
+        - @reservation_books.each do |book|
+          %hr
+          %p
+            =link_to "#{book.title},   #{I18n.l(book.published_at)}~開始", book_path(book.id)
+    .show-posts-container 
+      %h1.show-posts-container-title 
+        イベント一覧
+      .host-show-posts-main
+        = render @books
+    
         
 .mains__footer
   %ul.mains__footer__content
