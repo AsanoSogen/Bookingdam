@@ -22,5 +22,11 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :create, :new] do
     resources :reservations
   end 
+
+  namespace :api, { format: 'json' } do
+    namespace :v1 do
+      resources :books
+    end
+  end
   
 end

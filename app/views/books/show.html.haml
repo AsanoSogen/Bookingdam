@@ -4,7 +4,9 @@
   .book-detail
     .book-detail-2
       %h2
-        =@book.title 
+        =@book.title
+      %p
+        = link_to "開催者:#{@user.nickname}", user_path(@user)
 
     .book-main
       =image_tag(@book.image.url) unless @book.image.nil?
@@ -42,7 +44,21 @@
           = form_for [@book, @book.reservations.new] do |f| 
             .book-main2-reservation-btn
               = f.submit "このイベントを予約する"
-      
+-if @user.id == current_user.id            
+  .book-main3
+    %h2 参加者名簿
+    .book-main3-list
+      %p 名前
+      %p email
+      %p 電話番号
+    -@reservation_users.each do |user|
+      .book-main3-reservation_userlist
+        %p
+          = user.nickname
+        %p
+          = user.email
+        %p
+          = user.address.phone_number
 .mains__footer
   %ul.mains__footer__content
     %li
