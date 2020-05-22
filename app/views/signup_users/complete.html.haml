@@ -1,6 +1,6 @@
 .done-container
   .done-container--header
-    =link_to image_tag('book.jpeg', class: 'done--header--image'), "#"
+
   .done-container--main
     %section.done-container--main--display
       %h2.done-container--main--display--registration 会員登録完了
@@ -10,8 +10,8 @@
             ありがとうございます。
             %br>/
             会員登録が完了しました。
-          =link_to "アプリを利用する", user_path(session[:id])
-.mains--footer
+          =link_to "アプリを利用する", users_path,data: {"turbolinks" => false}
+.mains__footer
   %ul.mains__footer__content
     %li
       = link_to "#" do
@@ -23,6 +23,6 @@
       = link_to "#" do
         Bookingdam利用規約
   .mains__footer__logo
-    = link_to image_tag('book.jpeg', class: 'logo__image'), "#"
-  %p.mains__footer__c-mark
-    © Bookingdam,inc.
+    = link_to image_pack_tag('book.jpeg'), "#"
+    %p.mains__footer__c-mark
+      © Booingdam

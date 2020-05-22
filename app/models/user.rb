@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   # step1入力項目
 
-  validates :nickname,       presence: true, length: {maximum: 20}
+  validates :nickname,       presence: true, length: {maximum: 15}
   validates :email,          presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password,       presence: true, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}
   validates :password_confirmation, presence: true, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'}

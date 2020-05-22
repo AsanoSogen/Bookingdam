@@ -1,11 +1,13 @@
 class Address < ApplicationRecord
-    # VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
 
-    # validates :postal_code,             presence: true
-    # validates :prefectures,             presence: true
-    # validates :municipalities,          presence: true
-    # validates :address,                 presence: true
-    # validates :phone_number,            presence: true
+    VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i
+    VALID_PHONE_NUMBER = /\A((0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1}|[5789]0[-(]?\d{4})[-)]?)|\d{1,4}\-?)\d{4}\z/
+
+    validates :postal_code,             presence: true, format: { with: VALID_POSTAL_CODE , message: "郵便番号の様式で入力してください"}
+    validates :prefectures,             presence: true
+    validates :municipalities,          presence: true
+    validates :address,                 presence: true
+    validates :phone_number,            presence: true, format: { with: VALID_PHONE_NUMBER }
 
     enum prefectures: {
         北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
