@@ -47,18 +47,12 @@
 -if @user.id == current_user.id            
   .book-main3
     %h2 参加者名簿
-    .book-main3-list
-      %p 名前
-      %p email
-      %p 電話番号
-    -@reservation_users.each do |user|
-      .book-main3-reservation_userlist
-        %p
-          = user.nickname
-        %p
-          = user.email
-        %p
-          = user.address.phone_number
+    .bookingdam4{id:"app3"}
+      %template
+      %el-table{":data" => "users", :style => "width: 100%"}
+        %el-table-column{:label => "名前", :prop => "nickname", :width => "250"}
+        %el-table-column{:label => "email", :prop => "email", :width => "250"}
+        %el-table-column{:label => "電話番号", :prop => "phone_number", :width => "250"}
 .mains__footer
   %ul.mains__footer__content
     %li
@@ -75,5 +69,5 @@
     %p.mains__footer__c-mark
       © Booingdam
     
-
+= javascript_pack_tag 'books/show'
 = javascript_include_tag 'showmap'

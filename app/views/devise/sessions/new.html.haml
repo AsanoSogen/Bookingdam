@@ -1,0 +1,36 @@
+.logins
+  .logins__header
+
+  .logins__row
+    .logins__row__container
+      .logins__row__container__middle
+        %h2 メールアドレスでログイン      
+      .logins__row__container__form
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-field
+            .form-field__input
+              = f.email_field :email, autofocus: true, placeholder: "メールアドレス"
+            .form-field__input
+              = f.password_field :password, autofocus: true, placeholder: "パスワード"
+            .form-field__button
+              = f.submit "ログイン", class: 'btn'
+        
+      .logins__row__container__restart
+        = link_to "#" do
+          パスワード、ログイン方法を忘れた方はこちらから
+          
+.mains__footer
+  %ul.mains__footer__content
+    %li
+      = link_to "#" do
+        会社概要（運営会社）
+    %li
+      = link_to "#" do
+        プライバシーポリシー
+    %li
+      = link_to "#" do
+        Bookingdam利用規約
+  .mains__footer__logo
+    = link_to image_pack_tag('book.jpeg'), "#"
+    %p.mains__footer__c-mark
+      © Booingdam
