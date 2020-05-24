@@ -1,0 +1,21 @@
+.logins{
+    width: 1600px;
+    height: 1600px;
+    &__row{
+        &__container{
+            &__middle{
+                height: 100px;
+                background-color: yellowgreen;
+                h2{
+                    line-height: 100px;
+                    text-align: center;
+                }
+            }
+            &__form{
+                .form-field{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
