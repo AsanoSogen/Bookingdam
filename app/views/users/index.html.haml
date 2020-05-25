@@ -5,20 +5,30 @@
   .header-menu
     -if user_signed_in?
       .listsRight__item.listsRight__item--first
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
-        = link_to "マイページ", current_user
+        = link_to "ログアウト", destroy_user_session_path,class: 'btn', method: :delete
+      .listsRight__item.listsRight__item--second
+        = link_to "マイページ", current_user,class: 'btn'
       
     - else
       .listsRight__item.listsRight__item--first
-        = link_to "ログイン", new_user_session_path,class: ''
+        = link_to "ログイン", new_user_session_path,class: 'btn'
       .listsRight__item.listsRight__item--second
-        = link_to '新規ユーザー登録', step1_signup_users_path ,class: ''
+        = link_to '新規ユーザー登録', step1_signup_users_path ,class: 'btn'
 
 .main
   .main-container
     .main-image
       %h1 「参加したい」をもっと手軽に
-      -# = image_tag 'booking.jpeg', class: 'image-book-tag'
+      .main-image-set_users
+        %h3 イベントユーザー一覧
+        -@users.each do |user|
+          =link_to user_path(user.id) do
+            .main-image-set_users-user
+              %p
+                =user.nickname
+              .main-image-set_users-user-image
+                = image_tag(user.image.url)
+                
       .search-users
         = form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| 
           = form.text_field :keyword, placeholder: "主催者を検索する", class: "search-input"

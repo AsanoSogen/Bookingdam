@@ -11,7 +11,7 @@
         font-size: 15px;
         margin-left: 400px;
     }
-    .header-menu {
+    &-menu {
         font-size: 15px;
         margin-bottom: 50px;
         position: absolute;
@@ -33,7 +33,7 @@
       .main-image {
         background-image: url("../images/booking.jpg");
         height: 900px;
-        width: 1600px;
+        width: 100%;
         position: absolute; 
         background-size:  cover;
         background-color:rgba(255,255,255,0.8);
@@ -47,6 +47,42 @@
             font-weight: bold;
             background: rgba(0, 0, 0, 0.06);
             color: #66CDAA;
+        }
+        &-set_users{
+            opacity: 0.7;
+            background-color: white;
+            position: absolute;
+            top: 400px;
+            height: 500px;
+            width: 100%;
+            display: flex;
+            padding-top: 70px;
+
+            h3{
+                position: absolute;
+                top: 15px;
+            }
+            a{
+                .main-image-set_users-user{
+                    margin-left: 30px;
+                    width: 170px;
+                    background-color: lightgreen;
+                    
+
+                    p{
+                        font-size: 15px;
+                        text-align: center;
+                    }
+                    &-image{
+                        img{
+                            padding: 5px;
+                            width: 160px;
+                            height: 160px;
+                        }
+                    }
+                }
+
+            }
         }
         .search-users {
             margin-left: 40px;
