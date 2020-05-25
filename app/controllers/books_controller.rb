@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   
   def create
     @book = Book.new(book_params)
-    if @book = Book.create(book_params)
+    if @book.save!
       @book.image = "#{@book.id}.jpg"  
       image=params[:image] 
     else
