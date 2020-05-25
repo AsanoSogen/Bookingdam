@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    # @users = User.all
+    @users = User.where.not(image: "", text: "").limit(8).order("RAND()")
   end
 
   def show
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       image=params[:image]
     end
     
-    redirect_to user_path(@user)
+    redirect_to users_path
   end
 
   def search
