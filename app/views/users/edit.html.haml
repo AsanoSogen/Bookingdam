@@ -5,7 +5,7 @@
       .l-single-container
         %h2 プロフィール編集
     .l-single-content
-      = form_with( model:@user, local: true, multipart: :true )  do |f|
+      = form_with(model: @user, local: true, multipart: :true )  do |f|
         .form-group
           = f.label :nickname,"氏名"
           = f.text_field :nickname, autofocus: true

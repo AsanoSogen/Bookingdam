@@ -19,6 +19,4 @@ class User < ApplicationRecord
   has_many :books
   has_many :reservations, dependent: :destroy
   has_many :reservation_books, through: :reservations, source: :book
-  
-
 end

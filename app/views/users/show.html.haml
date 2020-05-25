@@ -7,7 +7,7 @@
   
     .show-header-menu
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      = link_to "編集する", edit_user_path, class: "btn"
+      = link_to "編集する", edit_user_path(current_user) , class: "btn"
 
 -if @user.image&&@user.text.present?
   .user-show-main 

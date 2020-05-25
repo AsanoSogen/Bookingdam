@@ -1,28 +1,35 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, only: [:show, :edit, :update]
+
+
   def index
     @users = User.where.not(image: "", text: "").limit(8).order("RAND()")
   end
 
   def show
-    @user = User.find(params[:id])
     @books = @user.books.order("created_at DESC")
     @reservation_books = @user.reservation_books
   end
 
   def edit
-    @user = User.find(params[:id])
+
+    unless @user == current_user
+      redirect_to user_path(@user)
+    end
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
-    if @user.save
-      @user.image="#{@user.id}.jpg"
-      image=params[:image]
+    
+    if current_user.update(user_params)
+      @user.image="#{current_user.id}.jpg"
+      image = params[:image]
+      bypass_sign_in(current_user)
+      redirect_to users_path
+    else
+      redirect_to edit_user_path(current_user)
     end
     
-    redirect_to users_path
   end
 
   def search
@@ -35,6 +42,12 @@ class UsersController < ApplicationController
   end
   
   private
+
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(
       :nickname,
