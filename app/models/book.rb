@@ -16,8 +16,8 @@ class Book < ApplicationRecord
   has_many :reservations
   has_many :reservation_users, through: :reservations, source: :user
   mount_uploader :image, ImageUploader
-  geocoded_by :address, latitude: :lat, longitude: :lon 
-  after_validation :geocode
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
 
   def reserved_by?(user)
