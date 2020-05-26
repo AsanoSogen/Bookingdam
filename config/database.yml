@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: Sogen0921
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   # host: db #Docker使用時はこちらのコメントアウトを解除
   socket: /tmp/mysql.sock #Docker使用時はこちらの記述をコメントアウトすること
 
@@ -52,6 +52,6 @@ production:
   <<: *default
   database: Bookingdam_production
   username: root
-  password: Sogen0921
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
   host: asanosogendb.cl0srnmim3oz.ap-northeast-1.rds.amazonaws.com
