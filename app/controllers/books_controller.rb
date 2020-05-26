@@ -25,7 +25,8 @@ class BooksController < ApplicationController
   
   def create
     @book = Book.new(book_params)
-    if @book.save!
+    if @book.valid?
+      @book.save!
       @book.image = "#{@book.id}.jpg"  
       image=params[:image] 
       redirect_to user_path(current_user)
