@@ -93,10 +93,14 @@
     面上でGoogleMap表示できるようにしました。
 
 
-    ・イベント開催者が、投稿したイベント毎で予約したユーザーをVue.jsを用いて閲覧できるようにしました。Vue.jsのaxiosを用いることでRails側で作成したapiを呼び出  
+    ・イベント開催者のみが、投稿したイベント毎で予約したユーザーをVue.jsを用いて閲覧できるようにしました。Vue.jsのaxiosを用いることでRails側で作成したapiを呼び出  
     し、vue-routerを用いることでイベント詳細画面のidとapiのidを一致させました。
 
+![demo](https://gyazo.com/9e493de1ffbba8b101128dbb1bfab6b8/raw)
 
+![demo](https://gyazo.com/8c00ee45ead0d013e24d241dcee987d3/raw)
+
+![demo](https://gyazo.com/ad1ec698eb6d034fc5ad7f598aca0e30/raw)
 ## 今後の課題
 
 
