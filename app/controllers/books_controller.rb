@@ -28,10 +28,11 @@ class BooksController < ApplicationController
     if @book.save!
       @book.image = "#{@book.id}.jpg"  
       image=params[:image] 
+      redirect_to user_path(current_user)
     else
       render :new
     end
-    redirect_to user_path(current_user)
+    
   end
   
   def update
