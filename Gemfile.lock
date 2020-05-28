@@ -54,7 +54,7 @@ GEM
     bcrypt (3.1.13)
     bindex (0.8.1)
     builder (3.2.4)
-    capistrano (3.14.0)
+    capistrano (3.12.1)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -194,8 +194,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    puma (4.3.5)
-      nio4r (~> 2.0)
+    puma (3.12.6)
     rack (2.2.2)
     rack-proxy (0.6.5)
       rack
@@ -310,7 +309,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-session_store
-  capistrano
+  capistrano (= 3.12.1)
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
@@ -334,7 +333,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.3.18, < 0.6.0)
   pry-rails
-  puma (>= 3.12.6)
+  puma (~> 3.12.4)
   rails (< 5.2.2)
   rails-controller-testing
   rails-i18n (~> 5.1)

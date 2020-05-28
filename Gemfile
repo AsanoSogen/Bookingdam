@@ -11,7 +11,7 @@ gem 'rails', "< 5.2.2"
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 # Use Puma as the app server
-gem "puma", ">= 3.12.6"
+gem 'puma', '~> 3.12.4'
 # Use SCSS for stylesheets
 
 # Use Uglifier as compressor for JavaScript assets
@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'capistrano'
+  gem 'capistrano','3.12.1'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
