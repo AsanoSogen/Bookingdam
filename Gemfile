@@ -81,3 +81,4 @@ gem 'webpacker'
 gem 'coffee-rails', '~> 4.2'
 gem 'gon'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'sprockets', '~> 3.7.2'
