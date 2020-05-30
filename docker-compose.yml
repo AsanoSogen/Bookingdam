@@ -4,7 +4,7 @@ services:
     build:
       context: .
     environment:
-      MYSQL_ROOT_PASSWORD: Sogen0921
+      MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
       MYSQL_USER: root
     command: bundle exec puma -C config/puma.rb
     volumes:
@@ -18,7 +18,7 @@ services:
   db:
     image: mysql:5.6
     environment:
-      MYSQL_ROOT_PASSWORD: Sogen0921
+      MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
       MYSQL_USER: root
     volumes:
       - db-data:/var/lib/mysql
@@ -36,7 +36,7 @@ services:
   
   webpacker:
     build: .
-    command: ./bin/webpack-dev-server
+    command: bin/webpack-dev-server
     ports:
       - "3035:3035"
     volumes:

@@ -1,5 +1,4 @@
 # ruby:2.6のDockerイメージをベースとして利用
-FROM node:12.16.2 as node
 FROM ruby:2.6.2
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
