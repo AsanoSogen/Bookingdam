@@ -12,6 +12,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
+    "postcss-loader": "^3.0.0",
     "qs": "^6.9.4",
     "rails-ujs": "^5.2.4-2",
     "regenerator-runtime": "^0.13.5",
