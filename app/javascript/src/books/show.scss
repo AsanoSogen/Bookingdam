@@ -103,6 +103,20 @@
   
             }
           }
+          &-notbtn{
+            margin-top: 50px;
+            a{
+              -webkit-appearance: none;
+              width: 250px;
+              height: 50px;
+              margin: 0 auto;
+              text-align: center;
+              background-color: red;
+              border: 1px solid maroon;
+              color: white;
+              line-height: 35px;
+            }
+          }
         }
       }
     }

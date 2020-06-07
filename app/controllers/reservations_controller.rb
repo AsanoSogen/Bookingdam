@@ -11,6 +11,12 @@ class ReservationsController < ApplicationController
     redirect_to root_path notice:"予約が完了しました"
   end
 
+  def destroy
+    @reservation = Reservation.find_by(user_id: current_user.id, book_id: @book.id)
+    @reservation.delete
+    redirect_to user_path(current_user.id)
+  end
+
   private
 
   def reservation_params

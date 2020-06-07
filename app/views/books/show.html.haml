@@ -37,8 +37,8 @@
 
       -if @book.reserved_by?(current_user)
         .book-main2-reservation
-          .book-main-reserve-notbtn
-            %h2 このイベントは予約済みです
+          .book-main2-reservation-notbtn
+            = link_to "予約を取り消す", book_reservation_path(@book), method: :delete, class: 'btn'
       -else  
         .book-main2-reservation
           = form_for [@book, @book.reservations.new] do |f| 
