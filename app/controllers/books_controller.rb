@@ -11,6 +11,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    
+    require "date"  
+    @now = Date.today
     @book = Book.find(params[:id])
     @user = @book.user
     @reservation_users = @book.reservation_users
