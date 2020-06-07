@@ -35,15 +35,16 @@
           %p
             = "現在、#{@reservations_count}" + "人が予約中"
 
-      -if @book.reserved_by?(current_user)
-        .book-main2-reservation
-          .book-main2-reservation-notbtn
-            = link_to "予約を取り消す", book_reservation_path(@book), method: :delete, class: 'btn'
-      -else  
-        .book-main2-reservation
-          = form_for [@book, @book.reservations.new] do |f| 
-            .book-main2-reservation-btn
-              = f.submit "このイベントを予約する"
+      -if @book.end_day > @now
+        -if @book.reserved_by?(current_user)
+          .book-main2-reservation
+            .book-main2-reservation-notbtn
+              = link_to "予約を取り消す", book_reservation_path(@book), method: :delete, class: 'btn'
+        -else  
+          .book-main2-reservation
+            = form_for [@book, @book.reservations.new] do |f| 
+              .book-main2-reservation-btn
+                = f.submit "このイベントを予約する"
 -if @user.id == current_user.id            
   .book-main3
     %h2 参加者名簿
