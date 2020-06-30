@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
@@ -16,22 +18,20 @@ class ApplicationController < ActionController::Base
   # end
 
   # protect_from_forgery with: :exception
-  
-
 
   def after_sign_in_path_for(resource)
     case resource
     # when HostUser
     #   host_user_path(id: resource.id)
     when User
-      user_path(id: resource.id)     
+      user_path(id: resource.id)
     end
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys:[:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
   # def user_params
@@ -45,5 +45,4 @@ class ApplicationController < ActionController::Base
   # def after_sign_out_path_for(resource_or_scope)
   #   root_path # ←redirect先にしたいpathを自分で書く
   # end
-
 end

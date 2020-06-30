@@ -1,18 +1,18 @@
-class BooksController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_user, except: [:show, :create,:new]
+class BooksController < ApplicationController
+  before_action :set_user, except: [:show, :create, :new]
 
   def index
     @books = @user.books.includes(:user)
   end
-  
+
   def new
     @book = Book.new
   end
 
   def show
-    
-    require "date"  
+    require 'date'
     @now = Date.today
     @book = Book.find(params[:id])
     @user = @book.user
@@ -21,35 +21,34 @@ class BooksController < ApplicationController
     gon.lat = @book.latitude
     gon.lng = @book.longitude
   end
-  
+
   def edit
     @book = Book.find(params[:id])
   end
-  
+
   def create
     @book = Book.new(book_params)
     if @book.valid?
       @book.save!
-      @book.image = "#{@book.id}.jpg"  
-      image=params[:image] 
+      @book.image = "#{@book.id}.jpg"
+      image = params[:image]
       redirect_to user_path(current_user)
     else
       render :new
     end
-    
   end
-  
+
   def update
-      @book = Book.find(params[:id])
-      if @book.update_attributes(book_params)
+    @book = Book.find(params[:id])
+    if @book.update_attributes(book_params)
       redirect_to books_path, notice: "#{@book.title} を更新しました。"
-      else
+    else
       render :edit
-      end
+    end
   end
-  
+
   private
-  
+
   def book_params
     params.permit(:title, :text, :image, :published_at, :end_day, :address, :latitude, :longitude).merge(user_id: current_user.id)
   end

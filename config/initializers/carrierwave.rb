@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  if Rails.env.development? || Rails.env.test? #開発とテストは今まで通りに
+  if Rails.env.development? || Rails.env.test? # 開発とテストは今まで通りに
     config.storage = :file
   elsif Rails.env.production?
     config.storage = :fog
@@ -15,7 +17,7 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1'
     }
 
-    config.fog_directory  = 'www.bookingdam.com'
+    config.fog_directory = 'www.bookingdam.com'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/www.bookingdam.com'
   end
 end
