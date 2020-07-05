@@ -7,7 +7,7 @@ jobs:
             RAILS_ENV: test
             DB_HOST: 127.0.0.1
             DB_USERNAME: 'root'
-            DB_PASSWORD: '<%= ENV['MYSQL_PASSWORD'] %>'
+            DB_PASSWORD: ''
       - image: circleci/mysql:5.6
     working_directory: ~/Bookingdam
 
