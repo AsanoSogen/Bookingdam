@@ -16,16 +16,16 @@ jobs:
       - run:
         name: bundle install
         command: bundle install 
-    - run:
+      - run:
         name: データベースの起動を待機
         command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-    - run:
+      - run:
         name: データベースのセットアップ
         command: bundle exec rake db:schema:load
-    - run: 
+      - run: 
         name: テストの実行
         command: bundle exec rspec
-    - run:
+      - run:
         name: コード解析
         command: bundle exec rubocop
 
