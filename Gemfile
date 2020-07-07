@@ -46,6 +46,8 @@ group :development, :test do
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem "rspec_junit_formatter"
+  gem 'therubyracer'
 end
 
 group :development do

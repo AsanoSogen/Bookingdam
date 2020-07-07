@@ -1,77 +1,43 @@
 version: 2.1 # CircleCI 2.0 を使用します
+
 jobs: # ステップの集合
   build: # Workflows を使用しない実行では、エントリポイントとして `build` ジョブが必要
     docker: # Docker でステップを実行します
       - image: circleci/ruby:2.6.2 # このイメージをすべての `steps` が実行されるプライマリコンテナとして使用します
         environment: # プライマリコンテナの環境変数
-          $BUNDLER_VERSION: 2.1.4
+          BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
+          MYSQL_USER: root
       - image: circleci/mysql:5.6 # データベースイメージ
         # environment: # データベースの環境変数
         #   MYSQL_USER: root
         #   MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
     working_directory: ~/Bookingdam
-
     steps:
       - checkout
 
-      # Setup bundler 2+
       - run:
-          name: setup bundler
+          name: bundle install
           command: |
-            gem update --system
-            gem uninstall bundler
-            rm /usr/local/bin/bundle
-            rm /usr/local/bin/bundler
-            gem install bundler
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
+              gem install bundler -v 2.1.4
+              bundle install --path vendor/bundle
+      # - run: mv config/database.yml.ci config/database.yml 
       - run:
-          name: install dependencies
+          name: データベースの起動を待機
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run:
+          name: データベースのセットアップ
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+              bundle exec rake db:create
+              bundle exec rake db:migrate
+      - run: 
+          name: テストの実行
+          command: bundle exec rspec
 
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      # Database setup
-      - run: bundle exec rake db:create db:schema:load
-
-      # run tests!
-      - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
-
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
-
-      # run rubocop!
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop
->>>>>>> Stashed changes
+workflows:
+  version: 2
+  workflows:
+    jobs:
+      - build
