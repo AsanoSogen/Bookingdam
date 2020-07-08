@@ -1,4 +1,4 @@
-version: 2.1 
+version: 2
 
 jobs: # ステップの集合
   build: # Workflows を使用しない実行では、エントリポイントとして `build` ジョブが必要
@@ -11,9 +11,6 @@ jobs: # ステップの集合
           MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
           MYSQL_USER: root
       - image: circleci/mysql:5.6 # データベースイメージ
-        # environment: # データベースの環境変数
-        #   MYSQL_USER: root
-        #   MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
     working_directory: ~/Bookingdam
     steps:
       - checkout
@@ -41,7 +38,7 @@ jobs: # ステップの集合
   
 
 workflows:
-  version: 2.1
+  version: 2
   workflows:
     jobs:
       - build
