@@ -69,7 +69,7 @@ group :production do
 end
 
 gem 'activerecord-session_store'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'devise'
 gem 'erb2haml'
 gem 'fog-aws'
